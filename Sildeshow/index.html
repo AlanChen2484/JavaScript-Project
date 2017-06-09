@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>幻灯片效果</title>
+</head>
+<body>
+<div id="mylegend">loading......</div>
+<script type="text/javascript" src="./lufylegend-1.8.0.min.js"></script>
+<script type="text/javascript" src="./lufylegend.ui-0.2.0.min.js"></script>
+<script type="text/javascript" src="./LSlideshow.js"></script>
+<script type="text/javascript" src="./LSlideshowSample1.js"></script>
+<script>
+init(50,"mylegend",980,609,main);
+var backLayer,slideshowObj;
+var loadData = [
+	{name:"caocao",path:"./images/cao_cao.jpg"},
+	{name:"diaochan",path:"./images/diao_chan.jpg"},
+	{name:"guanyu",path:"./images/guan_yu.jpg"},
+	{name:"zhaoyun",path:"./images/zhao_yun.jpg"},
+	{name:"sunshangxiang",path:"./images/sun_shang_xiang.jpg"}
+];
+var datalist = {};
+function main(){
+	LStage.setDebug(true);
+	if(LGlobal.canTouch){
+		LGlobal.stageScale = LStageScaleMode.EXACT_FIT;
+		LSystem.screen(LStage.FULL_SCREEN);
+	}
+	
+	var loadingLayer = new LoadingSample5();
+	addChild(loadingLayer);
+	
+	LLoadManage.load(
+		loadData,
+		function(p){
+			loadingLayer.setProgress(p);
+		},
+		function(r){
+			datalist = r;
+			removeChild(loadingLayer);
+			initPage();
+		}
+	);
+}	
+function initPage(){
+	backLayer = new LSprite();
+	addChild(backLayer);
+	
+	slideshowObj = new LSlideshowSample1(971,609,true,{delay:3,order:LSlideshow.RANDOM});
+	backLayer.addChild(slideshowObj);
+	
+	slideshowObj.setFrame(new LBitmap(new LBitmapData(datalist["caocao"])));
+	slideshowObj.setFrame(new LBitmap(new LBitmapData(datalist["diaochan"])));
+	slideshowObj.setFrame(new LBitmap(new LBitmapData(datalist["guanyu"])));
+	slideshowObj.setFrame(new LBitmap(new LBitmapData(datalist["zhaoyun"])));
+	slideshowObj.setFrame(new LBitmap(new LBitmapData(datalist["sunshangxiang"])));
+	
+	addButton();
+}
+function addButton(){
+	var next_btn = new LButtonSample2(">",20,"黑体","white");
+	next_btn.backgroundCorl = "#008800";
+	next_btn.x = LStage.width-next_btn.getWidth()-40;
+	next_btn.y = (LStage.height-next_btn.getHeight())*0.5;
+	backLayer.addChild(next_btn);
+	next_btn.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
+		slideshowObj.next();
+	});
+	
+	var last_btn = new LButtonSample2("<",20,"黑体","white");
+	last_btn.backgroundCorl = "#008800";
+	last_btn.x = 20;
+	last_btn.y = (LStage.height-last_btn.getHeight())*0.5;
+	backLayer.addChild(last_btn);
+	last_btn.addEventListener(LMouseEvent.MOUSE_DOWN,function(){
+		slideshowObj.previous();
+	});
+	
+	for(var i=0; i<5; i++){
+		var page_btn = new LButtonSample2(i+1,20,"黑体","white");
+		page_btn.backgroundCorl = "#008800";
+		page_btn.x = 50*i+600;
+		page_btn.y = LStage.height-page_btn.getHeight()-40;
+		backLayer.addChild(page_btn);
+		page_btn.addEventListener(LMouseEvent.MOUSE_DOWN,function(event,o){
+			var textObj = o.getChildAt(1).getChildAt(0);
+			var toIndex = parseInt(textObj.text)-1;
+			slideshowObj.showFrameAt(toIndex,LSlideshow.LEFTWARD);
+		});
+	}
+}
+function ondown(event){
+	if(event.offsetX <= 100){
+		slideshowObj.previous();
+	}else if(event.offsetX >= LStage.width-100){
+		slideshowObj.next();
+	}
+}
+</script> 
+</body>
+</html>
