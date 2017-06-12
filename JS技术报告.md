@@ -23,6 +23,7 @@ Cookie在性质上是绑定在特定的域名下的，当设置了一个cookie�
 
 ### Cookie的构成
 
+![F](http://img.blog.csdn.net/20160718195118092 "form")
 
 ### Cookie的操作方法
 var CookieUtil = {
@@ -160,14 +161,12 @@ sessionStorage用于本地存储一个会话（session）中的数据，这些�
 而localStorage用于持久化的本地存储，除非主动删除数据，否则数据是永远不会过期的。
 
 ## Web storage和cookie的区别
- 1.Web Storage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。 
- 1.除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。 
- 1.但是cookie也是不可以或缺的：cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。				
+ 1. Web Storage的概念和cookie相似，区别是它是为了更大容量存储设计的。Cookie的大小是受限的，并且每次你请求一个新的页面的时候Cookie都会被发送过去，这样无形中浪费了带宽，另外cookie还需要指定作用域，不可以跨域调用。 
+ 1. 除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。 
+ 1. 但是cookie也是不可以或缺的：cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。				
 
 项目自评等级:4
 
 项目说明：
-1.翻译GitHub上技术分享者有关WebCookie and Web Storage的技术要点，并加以内化总结，编辑撰写JS技术报告；
-
-![F](http://www.quanjing.com/image/2016index/jt1.jpg "FGSF")
-![](http://www.quanjing.com/image/2016index/jt5.jpg)
+1. 翻译GitHub上技术分享者有关Web Cookie and Web Storage的技术要点，并加以内化总结，编辑撰写JS技术报告；
+1. 收集相关Cookie的知识点，丰富文章广度；
