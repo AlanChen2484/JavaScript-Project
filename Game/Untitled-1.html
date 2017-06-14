@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>登陆页面</title>
+<meta http-equiv="content-type" content="text/html" charset="utf-8" />
+<script language="javascript" type="text/javascript">
+function re()
+{
+var username=document.getElementById("username");
+var pass=document.getElementById("password");
+if(username.value=="")
+{
+alert("请输入用户名");
+username.focus();
+return ;
+}
+      else  if(pass.value=="")
+{
+alert("请输入密码");
+return;
+}
+      else  if((username.value=="crt")&&(pass.value=="123456"))
+{
+   
+   alert("登录成功，即将跳转");
+   window.location.href="FKGame.html";
+    //frm.submit();
+	//document.getElementById('totalSecond').textContent = --second; 
+    //if (second < 0) location.href = 'FKGame.html'; 
+	
+}
+  else
+{
+alert("false and again");
+return;
+          }
+return true;
+}
+
+
+</script>
+</head>
+<body>
+<form name="form" action="0.html" method="post">
+  <table>
+    <tr align=center>
+      <td>请输入用户名：</td>
+      <td><input type="text" name="username"  id="username"></td>
+    </tr>
+    <tr align=center>
+      <td>请输入密码：</td>
+      <td><input type="password" name="password" id="password"></td>
+    </tr>
+    <tr align=center>
+      <td colspan="2">
+      <input type="button" value="登 录" onclick="re();"/>
+        <input type="reset" value="重 置"/></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

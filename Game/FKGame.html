@@ -1,0 +1,33 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title> 俄罗斯方块 </title>
+<canvas id="myCanvas" width="500" height="600">
+你的浏览器不支持 Canvas 标签，请使用 Chrome 浏览器 或者 FireFox 浏览器
+</canvas><br />
+<audio id="bgAudio" src="music/fangkuaiMusic.mp3" loop>您的浏览器不支持audio标签
+</audio>
+<audio src="music/HTML5_GameRelated/cutMusic.mp3" id="shotAudio">您的浏览器不支持audio标签
+</audio>
+<link href="Game.css" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" src="my.js"></script>
+<script type="text/javascript">
+window.addEventListener('keydown',getKeyAndMove,false);
+</script>
+</head>
+<body onload="init()">
+<p class="play"><input type="button" id="playBtn" value="开始" onclick="playGame(this)"/></p>
+<p class="difficulty">游戏难度:
+<select id="select" onchange="selectDifficulty(this.value)">
+<option value="easy">容易</option>
+<option value="normal">一般</option>
+<option value="hard">困难</option>
+</select></p>
+<p class="bgMusic">背景音乐: <input type="button" id="bgMusicBtn" value="开启" onclick="bgMusicProcess()"/></p>
+<p class="score">游戏得分: <input type="text" id="score" size="8" only ready/></p>
+<p class="note">温馨提示: </br>
+1.改变游戏难度时，最好先暂停游戏</br>
+2.AWSD、方向键和如上按钮皆可控制</p>
+
+</body>
+</html>

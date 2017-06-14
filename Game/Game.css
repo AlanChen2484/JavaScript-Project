@@ -1,0 +1,50 @@
+
+body {
+    background-color: Wheat;
+    border:0px auto;
+}
+p.play {
+    left: 470px;
+    position: absolute;
+    top: 20px;
+}
+p.difficulty {
+    left: 420px;
+    position: absolute;
+    top: 60px;
+}
+p.bgMusic {
+    left: 420px;
+    position: absolute;
+    top: 100px;
+}
+p.score {
+    left: 420px;
+    position: absolute;
+    top: 140px;
+}
+p.rotate {
+    left: 470px;
+    position: absolute;
+    top: 180px;
+}
+p.left {
+    left: 420px;
+    position: absolute;
+    top: 420px;
+}
+p.right {
+    left: 320px;
+    position: absolute;
+    top: 420px;
+}
+p.down {
+    left: 470px;
+    position: absolute;
+    top: 260px;
+}
+p.note {
+    left: 420px;
+    position: absolute;
+    top: 300px;
+}
