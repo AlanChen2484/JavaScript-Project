@@ -3,6 +3,7 @@
 <head>
 <title>登陆页面</title>
 <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+ <link rel="stylesheet" type="text/css" href="Login.css"/>  
 <script language="javascript" type="text/javascript">
 function re()
 {
@@ -14,19 +15,20 @@ alert("请输入用户名");
 username.focus();
 return ;
 }
-      else  if(pass.value=="")
+   else  if(pass.value=="")
 {
 alert("请输入密码");
 return;
 }
-      else  if((username.value=="crt")&&(pass.value=="123456"))
+   else  if((username.value=="crt")&&(pass.value=="123456"))
 {
    
-   alert("登录成功，即将跳转");
+   //alert("登录成功，即将跳转");
    window.location.href="FKGame.html";
-    //frm.submit();
-	//document.getElementById('totalSecond').textContent = --second; 
-    //if (second < 0) location.href = 'FKGame.html'; 
+   //window.open('FKGame.html');
+   //frm.submit();
+   //document.getElementById('totalSecond').textContent = --second; 
+   //if (second < 0) location.href = 'FKGame.html'; 
 	
 }
   else
@@ -40,7 +42,21 @@ return true;
 
 </script>
 </head>
-<body>
+
+<body>  
+    <div id="login">  
+        <h1>Login</h1>  
+        <form method="post">  
+            <input type="text" required="required" placeholder="用户名" name="username" id="username"></input>  
+            <input type="password" required="required" placeholder="密码" name="password" id="password"></input>  
+            <button class="but" type="button" onclick="re();">登录</button>
+        </form>  
+    </div>  
+</body>  
+
+
+
+<!--<body>
 <form name="form" action="0.html" method="post">
   <table>
     <tr align=center>
