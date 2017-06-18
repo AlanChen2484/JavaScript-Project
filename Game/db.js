@@ -70,7 +70,7 @@ http.createServer(function (req , res) {
                 }
                 if(pathName == "/login"){
                   console.log(arr); 
-                  res.end("a用户名不存在!");
+                  res.end("此用户名不存在!");
                   return;
                 }
                 if(pathName == "/register"){

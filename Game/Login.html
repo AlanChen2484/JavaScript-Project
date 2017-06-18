@@ -1,78 +1,76 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<title>登陆页面</title>
-<meta http-equiv="content-type" content="text/html" charset="utf-8" />
- <link rel="stylesheet" type="text/css" href="Login.css"/>  
-<script language="javascript" type="text/javascript">
-function re()
-{
-var username=document.getElementById("username");
-var pass=document.getElementById("password");
-if(username.value=="")
-{
-alert("请输入用户名");
-username.focus();
-return ;
-}
-   else  if(pass.value=="")
-{
-alert("请输入密码");
-return;
-}
-   else  if((username.value=="crt")&&(pass.value=="123456"))
-{
-   
-   //alert("登录成功，即将跳转");
-   window.location.href="FKGame.html";
-   //window.open('FKGame.html');
-   //frm.submit();
-   //document.getElementById('totalSecond').textContent = --second; 
-   //if (second < 0) location.href = 'FKGame.html'; 
-	
-}
-  else
-{
-alert("false and again");
-return;
-          }
-return true;
-}
-
-
-</script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+        body {
+            margin-left: auto;
+            margin-right: auto;
+            margin-TOP: 100PX;
+            width: 20em;
+			background-color:#45AFD5;
+        }
+    </style>
 </head>
 
-<body>  
-    <div id="login">  
-        <h1>Login</h1>  
-        <form method="post">  
-            <input type="text" required="required" placeholder="用户名" name="username" id="username"></input>  
-            <input type="password" required="required" placeholder="密码" name="password" id="password"></input>  
-            <button class="but" type="button" onclick="re();">登录</button>
-        </form>  
-    </div>  
-</body>  
-
-
-
-<!--<body>
-<form name="form" action="0.html" method="post">
-  <table>
-    <tr align=center>
-      <td>请输入用户名：</td>
-      <td><input type="text" name="username"  id="username"></td>
-    </tr>
-    <tr align=center>
-      <td>请输入密码：</td>
-      <td><input type="password" name="password" id="password"></td>
-    </tr>
-    <tr align=center>
-      <td colspan="2">
-      <input type="button" value="登 录" onclick="re();"/>
-        <input type="reset" value="重 置"/></td>
-    </tr>
-  </table>
-</form>
+<body>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">用户名</span>
+        <input id="user" type="text" class="form-control" placeholder="用户名" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <!--下面是密码输入框-->
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">密&nbsp;&nbsp;&nbsp;码</span>
+        <input id="password" type="password" class="form-control" placeholder="密码" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <p><input type="checkbox" id="checkbox"> 记住密码</p>
+    <!--下面是登陆按钮,包括颜色控制-->
+    <button id="login" type="button" style="width:280px;" class="btn btn-default">登 录</button>
+    <br>
+    <br>
+    <!--下面是注册按钮,包括颜色控制-->
+    <button onclick="registered()" type="registered" style="width:280px;" class="btn btn-default">注 册</button>
 </body>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script>
+    function registered() {
+            window.location.href = 'registered.html';
+        }
+        
+    $(function () {
+        $("#login").click(function () {
+            if ($("#user").val().length == 0){
+                return alert("请输入内容!");
+            }
+            if ($("#password").val().length == 0){
+                return alert("请输入密码!");
+            }
+        
+            $.ajax({
+                url:"http://localhost:7070/login",
+                type:"POST",
+                data:{
+                    username:$("#user").val(),
+                    password:$("#password").val()
+                },
+                success:function (res) {
+                if(res =="登录成功!"){
+                    window.location.href='./FKGame.html';
+                }
+                else
+                    alert(res);
+                },
+                error:function (err) {
+                console.log(err);
+                }
+            })
+    
+        })
+    });
+</script>
+
+
 </html>

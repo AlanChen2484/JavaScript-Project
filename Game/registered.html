@@ -9,6 +9,7 @@
             margin-right: auto;
             margin-TOP: 100PX;
             width: 20em;
+			background-color:#45AFD5;
         }
     </style>
 </head>
@@ -48,7 +49,7 @@
             else if($("#password").val().length == 0||$("#password1").val().length == 0)
                 return alert("请输入密码!");
             else if($("#password1").val() != $("#password").val())
-                return alert("两次密码不一样")
+                return alert("两次输入的密码不一致")
             else{
                 $.ajax({
                     url:"http://localhost:7070/register",
