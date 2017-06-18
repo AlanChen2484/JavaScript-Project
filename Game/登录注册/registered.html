@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <style>
+        body {
+            margin-left: auto;
+            margin-right: auto;
+            margin-TOP: 100PX;
+            width: 20em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input id="user" type="text" class="form-control" placeholder="用户名" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <!--下面是密码输入框-->
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input id="password" type="password" class="form-control" placeholder="密码" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input id="password1" type="password" class="form-control" placeholder="确认密码" aria-describedby="basic-addon1">
+    </div>
+    <br>
+    <!--下面是登陆按钮,包括颜色控制-->
+    <button id="register" type="button" style="width:280px;" class="btn btn-default">确 认</button>
+    <br>
+    <br>
+    <button id="back" onclick="back()" type="button" style="width:280px;" class="btn btn-default">返回登录</button>
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script>
+        function back() {
+            window.location.href = 'login.html';
+        }
+    $(function () {
+        $("#register").click(function () {
+            if($("#user").val().length == 0)
+                return alert("请输入用户名!");
+            else if($("#password").val().length == 0||$("#password1").val().length == 0)
+                return alert("请输入密码!");
+            else if($("#password1").val() != $("#password").val())
+                return alert("两次密码不一样")
+            else{
+                $.ajax({
+                    url:"http://localhost:7070/register",
+                    type:"POST",
+                    data:{
+                        username:$("#user").val(),
+                        password:$("#password").val()
+                    },
+                    success:function (res) {
+                        alert(res);
+                        window.location.href = 'login.html';
+                    },
+                    error:function (err) {
+                        console.log(err);
+                    }
+                })
+            }
+        })
+    });
+</script>
+</body>
+
+</html>
