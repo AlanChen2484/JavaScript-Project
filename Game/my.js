@@ -91,11 +91,11 @@ downRate=500;
 }
 else if ("normal"==v)
 {
-downRate=350;
+downRate=250;
 }
 else if ("hard"==v)
 {
-downRate=Width;
+downRate=100;
 }
 }
 function bgMusicProcess()
