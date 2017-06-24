@@ -140,8 +140,8 @@ localStorage对象是HTML5中取代globalStorage的持久保存客户端数据�
 保存在localStorage和globalStorage中的数据一样，数据保留到通过JavaScript删除或者是用户清除浏览器缓存
 
 //客户端数据存储,持久保存客户端数据的方案，适用于长期保存用户偏好设置！
-
-function getLocalStorage () {
+```
+    function getLocalStorage () {
     if (typeof localStorage == "object") {
         return localStorage;
     } else if (typeof globalStorage == "object") {
@@ -149,8 +149,8 @@ function getLocalStorage () {
     } else {
         throw new Error ("Local storage not available")
     }
-}
-
+    }
+```
 总结一下：
 
 在较高版本的浏览器中，js提供了sessionStorage和globalStorage。在HTML5中提供了localStorage来取代globalStorage。 
@@ -165,8 +165,13 @@ sessionStorage用于本地存储一个会话（session）中的数据，这些�
  1. 除此之外，Web Storage拥有setItem,getItem,removeItem,clear等方法，不像cookie需要前端开发者自己封装setCookie，getCookie。 
  1. 但是cookie也是不可以或缺的：cookie的作用是与服务器进行交互，作为HTTP规范的一部分而存在 ，而Web Storage仅仅是为了在本地“存储”数据而生。				
 
-项目自评等级:4
+
 
 项目说明：
 1. 翻译GitHub上技术分享者有关Web Cookie and Web Storage的技术要点，并加以内化总结，编辑撰写JS技术报告；
 1. 收集相关Cookie的知识点，丰富文章广度；
+
+项目自评等级:4
+1. 原创性 (3)
+1. 技术难度 (4)
+1. 工作量 (3)
